@@ -4,6 +4,8 @@ function [ day, a, b ] = value(x)
 global p;
 global d;
 
+%TODO:判断片段是否合法
+
 % q(i)代表第i个工件的加工顺序
 Q=[x(1:20);1:20];
 Q1=sortrows(Q',1)';
@@ -26,13 +28,13 @@ for i = a:20
     end
 end
 
-%判断是否满足交货期，不满足则day直接返回-1
+%判断是否满足交货期，不满足则day直接返回NaN
 for i = 20:-1:1
    actday = -d(i) + (sum(p(x(1:q(i)))))*(q(i)<=a) + ...
                 (30 + sum(p(x(a+1 : q(i))))) * ((a < q(i)) & (q(i) <= a + b)) + ...
                 (60 + sum(p(x(a+b+1 : q(i))))) * (a + b < q(i));
     if actday > 0
-        day = -1;
+        day = NaN;
         return;
     end
 end
