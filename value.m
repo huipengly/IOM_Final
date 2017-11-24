@@ -11,6 +11,8 @@ Q=[x(1:20);1:20];
 Q1=sortrows(Q',1)';
 q=Q1(2,:);
 
+a = [];
+
 %寻找第一次维护前的生产个数a
 for i = 1:20
     aaa = sum(p(x(1:i)));
@@ -18,6 +20,10 @@ for i = 1:20
        a = i - 1; 
        break;
     end
+end
+
+if isempty(a)
+   bbbb = 1; 
 end
 
 %寻找第一次维护到第二次维护期间的生产个数b

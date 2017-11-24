@@ -1,3 +1,5 @@
+clear;
+tic
 load p.mat
 load d.mat
 
@@ -12,21 +14,39 @@ for i=1:inn
     Population(i,:)=randperm(20);
 end
 
-[f,p]=Fitness(Population,dislist);
+[pr, f, v]=Fitness(Population);
 
 gn=1;
 
+ymean=zeros(gnmax,1);  
+ymin=zeros(gnmax,1);  
+xmin=zeros(inn,20);  
 ChildPopulation = zeros(inn, 20);
 while gn <= gnmax
+   [vmin,nmin]=min(v);
+   if ~isnan(vmin)
+       aaa = 1;
+   end
+   ymean(gn)=mean(v(~isnan(v)));
+   ymin(gn)=vmin;
+   x=Population(nmin,:);
+   xmin(gn,:)=x;
     for i = 1:2:inn
         %交叉
-       parent = select(p);
-       %scro=cro(s,seln,pc);  %交叉操作
+       parent = select(pr);
+       children = PMX(Population(parent, :), pc);  %交叉操作
        %交叉结果变异
-       ChildPopulation(i,:) = variation(children(1), pm);
-       ChildPopulation(i+1,:) = variation(children(2), pm);
+       aa = variation(children(1, :), pm);
+       bb = variation(children(2, :), pm);
+       ChildPopulation(i,:) = aa;
+       ChildPopulation(i+1,:) = bb;
+%        ChildPopulation(i,:) = variation(children(1, :), pm);
+%        ChildPopulation(i+1,:) = variation(children(2, :), pm);
     end
     Population = ChildPopulation;
-    [f,p]=Fitness(Population,dislist);
-    %TODO:fitness函数，修改，输入染色体，输出不变
+    [pr, f]=Fitness(Population);
+    gn = gn + 1
 end
+x
+value(x)
+toc
