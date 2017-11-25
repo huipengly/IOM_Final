@@ -13,6 +13,3 @@ if pm > rand()
    x=chro(chr1+1:chr2);  
    newchro(chr1+1:chr2)=fliplr(x);%变异位之间左右翻转
 end
-
-
-end
