@@ -16,19 +16,15 @@ a = [];
 %寻找第一次维护前的生产个数a
 for i = 1:20
     aaa = sum(p(x(1:i)));
-    if aaa > 29
+    if aaa > 28
        a = i - 1; 
        break;
     end
 end
 
-if isempty(a)
-   bbbb = 1; 
-end
-
 %寻找第一次维护到第二次维护期间的生产个数b
 for i = a:20
-    if sum(p(x(a+1:i))) > (59 - 29)
+    if sum(p(x(a+1:i))) > (58 - 29)
        b = i - 1 - a; 
        break;
     end

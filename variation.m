@@ -12,10 +12,6 @@ if pm > rand()
    chr2=max(r1,r2);  
    x=chro(chr1+1:chr2);  
    newchro(chr1+1:chr2)=fliplr(x);%变异位之间左右翻转
-   
-   if size(newchro,2) ~= 20
-      aa=1; 
-   end
 end
 
 
