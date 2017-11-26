@@ -3,7 +3,7 @@ function [ p, fitness, v ] = Fitness( Population )
 %   此处显示详细说明
 %使用max - x + xi;
 
-length = size(Population,1);%列数
+length = size(Population,1);%行
 v = zeros(1, length);
 for i = 1:length
     v(i) = value(Population(i,:));

@@ -2,23 +2,23 @@
 %m用来统计各个解的个数，例如m(1)为最小的解的个数。m(10)为无解的情况。
 
 %加载一直条件pi和di
-clear;
+clear;close all;
 load p.mat
 load d.mat
-clear;close all;
 tic
-d = zeros(1,100);
+n = 100;
+dd = zeros(1,n);
 m = zeros(1,10);
 %循环运行1000次
-for i = 1:1000
-   d(i) = ga;
+for i = 1:n
+   dd(i) = ga;
 end
-%绘制求解情况图
-figure(2)
-plot(d,'*');
-%统计解的个数
-for j=1:max(d)-min(d)+1
-   m(j)= sum(d==(j-1+min(d)));
-end
-m(10)= sum(isnan(d));
+% %绘制求解情况图
+% figure(2)
+% plot(d,'*');
+% %统计解的个数
+% for j=1:max(d)-min(d)+1
+%    m(j)= sum(d==(j-1+min(d)));
+% end
+% m(10)= sum(isnan(d));
 toc

@@ -2,6 +2,7 @@ function [ chroC ] = PMX( chroP, pc )
 %PMX 此处显示有关此函数的摘要
 %   此处显示详细说明
 
+%TODO:删除交叉率
 if pc > rand()
     length = size(chroP,2);%列数
     chroC=chroP;  
