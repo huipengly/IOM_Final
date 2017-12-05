@@ -61,6 +61,6 @@ for i = 1:20
 end
 
 %返回总日期
-day = sum(p(x(a+b+1 : 20))) + s(2) + 1;
+day = sum(p(x(a+b+1 : 20))) + s(2);
 
 end
